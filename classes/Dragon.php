@@ -4,6 +4,8 @@
 
 class Dragon extends Personnage {
 
+    private static $creation;
+
     public function __construct() {
         // Je redéfini le constructeur de cette classe, je souhaite que mes instances de dragon aient une propriété id
         // définie aléatoirement entre 1 et 99 999
@@ -15,6 +17,7 @@ class Dragon extends Personnage {
         $this->y = rand(1,900);
 
         $this->vie = 100;
+        self::$creation++;
     }
 
     // Je redéfini la méthode héritée setNom
@@ -25,5 +28,9 @@ class Dragon extends Personnage {
     // J'ajoute une méthode cracheFeu, pour le moment cette méthode ne fait rien du tout
     public function cracheFeu() {
 
+    }
+
+    public static function getCreat() {
+        return self::$creation;
     }
 } 
